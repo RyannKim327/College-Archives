@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Welcome user</title>
-    </head>
-    <body>
-        <div>
-            <h3>Welcome user</h3>
-            {% if employees  %}
-                {% for i in employees %} 
-                    <li onclick="modify('{{ i.emp_id }}')">{{ i.lastname }} {{i.firstname}}</li>
-                {% endfor %}
-            {% endif %}
-        </div>
-    </body>
-    <script>
-        function modify(id){
-            window.open(`edit/${id}`, {
-                target: "_blank"
-            })
-        }
-    </script>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Welcome user</title>
+	</head>
+	<body>
+		<div>
+			<h3>Welcome user</h3>
+			{% if employees  %}
+				{% for i in employees %} 
+					<li onclick="modify('{{ i.emp_id }}')">{{ i.lastname }} {{i.firstname}}</li>
+				{% endfor %}
+			{% endif %}
+		</div>
+	</body>
+	<script>
+		function modify(id){
+			window.open(`edit/${id}`, {
+				target: "_blank"
+			})
+		}
+	</script>
 </html>

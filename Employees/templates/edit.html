@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Edit User {{ employee.lastname }} - {{ employee.firstname }}</title>
-        <style>
-            *{
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                outline: none;
-                user-select: none;
-            }
-            body{
-                height: 100dvh;
-                width: 100dvw;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User {{ employee.lastname }} - {{ employee.firstname }}</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        user-select: none;
+      }
+      body{
+        height: 100dvh;
+        width: 100dvw;
 
-                > form {
-                    display: flex;
-                    flex-direction: column;
-                    width: 100%;
-                    
-                    > label{
-                        display: flex;
-                        width: 50%;
-                        > input{
-                            width: 100%;
-                            box-sizing: border-box;
-                            margin-left: 25px;
-                        }
-                    }
-                }
+        > form {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          
+          > label{
+            display: flex;
+            width: 50%;
+            > input{
+              width: 100%;
+              box-sizing: border-box;
+              margin-left: 25px;
             }
-        </style>
-    </head>
-    <body>
-        <form>
-            <label>Firstname: <input type="text" name="firstname" value="{{employee.firstname}}"></label>
-            <label>Middlename: <input type="text" name="middlename" value="{{employee.middlename}}"></label>
-            <label>Lastname: <input type="text" name="lastname" value="{{employee.lastname}}"></label>
-            <label>Work ID: <input type="text" name="work_id" value="{{employee.work_id}}"></label>
-           <input type="submit" value="Upadate">
-        </form>
-    </body>
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label>Firstname: <input type="text" name="firstname" value="{{employee.firstname}}"></label>
+      <label>Middlename: <input type="text" name="middlename" value="{{employee.middlename}}"></label>
+      <label>Lastname: <input type="text" name="lastname" value="{{employee.lastname}}"></label>
+      <label>Work ID: <input type="text" name="work_id" value="{{employee.work_id}}"></label>
+      <input type="submit" value="Upadate">
+    </form>
+  </body>
 </html>
