@@ -24,7 +24,13 @@ def edit(request,id):
   }
   return HttpResponse(template.render(context, request))
 
-def updateData(request):
+def updateData(request, id):
   if(request.method == "POST"):
-    data = request.POST
-    emp = Employee.objects.update()
+    db = Employee.objects.get(emp_id=id)
+    db.firstname = request.POST.get("firstname", "").strip()
+    db.middlename = request.POST.get("middlename", "").strip()
+    db.lastname = request.POST.get("lastname", "").strip()
+    db.work_id = request.POST.get("work_id", "").strip()
+    
+    db.save()
+    return HttpResponse("<script>location.href='../..'</script>")

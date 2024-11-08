@@ -35,7 +35,8 @@
     </style>
   </head>
   <body>
-    <form>
+    <form method="POST" action="../update/{{employee.emp_id}}">
+      {% csrf_token %}
       <label>Firstname: <input type="text" name="firstname" value="{{employee.firstname}}"></label>
       <label>Middlename: <input type="text" name="middlename" value="{{employee.middlename}}"></label>
       <label>Lastname: <input type="text" name="lastname" value="{{employee.lastname}}"></label>
