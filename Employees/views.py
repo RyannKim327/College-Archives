@@ -5,12 +5,32 @@ from .models import Employee
 
 # Create your views here.
 
+departments = [
+  {
+    "id": 1247381320,
+    "name": "IT Department"
+  },
+  {
+    "id": 3245182330,
+    "name": "Finance Department"
+  },
+  {
+    "id": 3810300380,
+    "name": "Human Resource Department"
+  },
+  {
+    "id": 1324545230,
+    "name": "Sales Department"
+  },
+]
+
 # INFO: Read Data
 def index(request):
   emp = Employee.objects.all().values()
   template = loader.get_template("index.html")
   context = {
-    "employees": emp
+    "employees": emp,
+    "department": departments
   }
   return HttpResponse(template.render(context, request))
 
@@ -20,7 +40,8 @@ def edit(request,id):
   emp = Employee.objects.get(emp_id=id)
   template = loader.get_template("edit.html")
   context = {
-    "employee": emp
+    "employee": emp,
+    "departments": departments
   }
   return HttpResponse(template.render(context, request))
 
@@ -34,3 +55,5 @@ def updateData(request, id):
     
     db.save()
     return HttpResponse("<script>location.href='../..'</script>")
+  else:
+    return HttpResponse("<h1>You don't have permission for this ...</h1>")
