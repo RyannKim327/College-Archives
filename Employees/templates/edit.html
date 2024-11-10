@@ -16,20 +16,55 @@
         height: 100dvh;
         width: 100dvw;
 
-        > form {
+        > div {
           display: flex;
           flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
           width: 100%;
-          
-          > label{
-            display: flex;
-            justify-content: space-between;
-            width: 50%;
 
-            > input{
-              width: 75%;
-              box-sizing: border-box;
-              margin-left: 25px;
+          > form {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            
+            box-shadow: 1px 1px 5px #33333390;
+            padding: .5rem;
+            border-radius: .25rem;
+            justify-content: flex-end;
+            align-items: flex-end;
+
+            > label{
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+              border: 1px #33333390 solid;
+
+              &:nth-child(even){
+                margin: .5rem 0;
+              }
+
+              > input, select{
+                border: 0;
+                background-color: transparent;
+                padding: 0 .25rem;
+                width: 75%;
+                box-sizing: border-box;
+                margin-left: 25px;
+                border-radius: .25rem;
+              }
+            }
+            > div {
+              display: flex;
+              > input[type='submit'], > input[type='button']{
+                background-color: transparent;
+                border: 1px #33333390 solid;
+                padding: 0 .5rem;
+                margin: .5rem .25rem;
+                box-sizing: border-box;
+                border-radius: .25rem;
+              }
             }
           }
         }
@@ -37,23 +72,28 @@
     </style>
   </head>
   <body>
-    <form method="POST" action="../update/{{employee.emp_id}}">
-      {% csrf_token %}
-      <label>Firstname: <input type="text" name="firstname" value="{{employee.firstname}}"></label>
-      <label>Middlename: <input type="text" name="middlename" value="{{employee.middlename}}"></label>
-      <label>Lastname: <input type="text" name="lastname" value="{{employee.lastname}}"></label>
-      <label for="work_id">Work ID:
-        <select id="work_id" name="work_id">
-          {% for dept in departments %}
-          {% if dept.id == employee.work_id %}
-            <option value="{{dept.id}}" selected>{{ dept.name }}</option>
-          {% else %}
-            <option value="{{dept.id}}">{{ dept.name }}</option>
-          {% endif %}
-          {% endfor %}
-        </select>
-      </label>
-      <input type="submit" value="Upadate">
-    </form>
+    <div>
+      <form method="POST" action="../update/{{employee.emp_id}}">
+        {% csrf_token %}
+        <label>Firstname: <input type="text" name="firstname" value="{{employee.firstname}}"></label>
+        <label>Middlename: <input type="text" name="middlename" value="{{employee.middlename}}"></label>
+        <label>Lastname: <input type="text" name="lastname" value="{{employee.lastname}}"></label>
+        <label for="work_id">Work ID:
+          <select id="work_id" name="work_id">
+            {% for dept in departments %}
+            {% if dept.id == employee.work_id %}
+              <option value="{{dept.id}}" selected>{{ dept.name }}</option>
+            {% else %}
+              <option value="{{dept.id}}">{{ dept.name }}</option>
+            {% endif %}
+            {% endfor %}
+          </select>
+        </label>
+        <div>
+          <input type="button" value="Back to main menu" onclick="location.href='../..'">
+          <input type="submit" value="Update">
+        </div>
+      </form>
+    </div>
   </body>
 </html>

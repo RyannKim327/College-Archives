@@ -121,7 +121,7 @@
             {% for i in employees %} 
               <li>
                 <span onclick="modify('{{ i.emp_id }}')">{{ i.lastname }} {{i.firstname}}</span>
-                <span onclick="delete_user('{{ i.emp_id }}')">Delete employee</span>
+                <span onclick="delete_user('{{ i.emp_id }}', '{{ i.lastname }}')">Delete employee</span>
               </li>
             {% endfor %}
           {% else %}
@@ -135,9 +135,8 @@
 		function modify(id){
       location.href = `edit/${id}`
 		}
-		function delete_user(id){
-		  alert(id)
-      if(confirm("Are you sure you want to delete this data???")){
+		function delete_user(id, name){
+      if(confirm(`Are you sure you want to delete ${name}'s data???`)){
         location.href = `delete/${id}`
       }
 		}
