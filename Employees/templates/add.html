@@ -58,12 +58,14 @@
                 width: 50%;
               }
             }
-            > input[type="submit"]{
-              background-color: transparent;
-              border: 1px #33333390 solid;
-              padding: .25rem;
-              margin: .25rem 0;
-              border-radius: .25rem;
+            > div{
+              > input[type="submit"], input[type="button"]{
+                background-color: transparent;
+                border: 1px #33333390 solid;
+                padding: .25rem;
+                margin: .25rem 0;
+                border-radius: .25rem;
+              }
             }
           }
         }
@@ -74,6 +76,7 @@
     <div class="base">
       <form method="POST" action="/add-user">
         {% csrf_token %}
+        <h3 style="text-align: center; width: 100%; margin-bottom: 1.25rem;">Add New Employee</h3>
         <label for="firstname"><span>First name:<sup>*</sup></span> <input type="text" name="firstname" id="firstname"></label>
         <label for="middlename">Middle name: <input type="text" name="middlename" id="middlename"> </label>
         <label for="lastname"><span>Lastname:<sup>*</sup></span> <input type="text" name="lastname" id="lastname"></label>
@@ -84,7 +87,10 @@
             {% endfor %}
           </select>
         </label>
-        <input type="submit" value="Add new employee">
+        <div>
+          <input type="button" value="Back to main" onclick="location.href='../'">
+          <input type="submit" value="Add new employee">
+        </div>
       </form>
     </div>
   </body>

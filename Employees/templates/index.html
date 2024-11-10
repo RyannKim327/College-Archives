@@ -25,21 +25,54 @@
 
           width: 100%;
           height: 100%;
+
           > div {
             background-color: antiquewhite;
             box-shadow: 1px 1px 5px #333333d0;
             border-radius: .5rem;
             padding: .75rem;
+            width: 50%; 
 
+            &:nth-child(even){
+              margin: 1rem 0;
+            }
+            
             > ol {
               list-style-position: inside;
 
-              > li:hover{
-                text-decoration: underline;
+              > li {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                
+                > span:hover{
+                  text-decoration: underline;
+                }
               }
               
               > li:nth-child(even){
                 margin: .5rem 0;
+              }
+            }
+          }
+          > .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            > nav {
+              > ul {
+                display: flex;
+                justify-content: space-evenly;
+                list-style: none;
+                
+                > li {
+                  padding: 0 .5rem;
+
+                  &:nth-child(even){
+                    margin: 0 .5rem;
+                  }
+                }
               }
             }
           }
@@ -49,12 +82,21 @@
 	</head>
 	<body>
     <div>
+      <div class="header">
+        <h3>Welcome admin</h3>
+        <nav>
+          <ul>
+            <li onclick="location.href='/add-user'">Add new Employee</li>
+            <!-- <li>Delete employees</li> -->
+          </ul>
+        </nav>
+      </div>
       <div>
-        <h3>Welcome user</h3>
+        <h3 style="margin-bottom: .5rem;">Employee Lists</h3>
         <ol>
           {% if employees  %}
             {% for i in employees %} 
-            <li onclick="modify('{{ i.emp_id }}')">{{ i.lastname }} {{i.firstname}}</li>
+            <li> <span onclick="modify('{{ i.emp_id }}')">{{ i.lastname }} {{i.firstname}}</span><span onclick="delete_user('{{ i.emp_id }}')">Delete employee</li>
             {% endfor %}
           {% endif %}
         </div>
@@ -64,6 +106,12 @@
 	<script>
 		function modify(id){
       location.href = `edit/${id}`
+		}
+		function delete_user(id){
+		  alert(id)
+      if(confirm("Are you sure you want to delete this data???")){
+        location.href = `delete/${id}`
+      }
 		}
 	</script>
 </html>

@@ -76,3 +76,11 @@ def updateData(request, id):
     return HttpResponse("<script>location.href='../..'</script>")
   else:
     return HttpResponse("<h1>You don't have permission for this ...</h1>")
+
+# INFO: Delete user
+def deleteAccount(request, id):
+  db = Employee.objects.get(emp_id=id)
+  db.delete()
+  # db.save()
+  return HttpResponse("<script>location.href='../..'</script>")
+
