@@ -53,9 +53,9 @@
         <h3>Welcome user</h3>
         <ol>
           {% if employees  %}
-          {% for i in employees %} 
-          <li onclick="modify('{{ i.emp_id }}')">{{ i.lastname }} {{i.firstname}}</li>
-          {% endfor %}
+            {% for i in employees %} 
+            <li onclick="modify('{{ i.emp_id }}')">{{ i.lastname }} {{i.firstname}}</li>
+            {% endfor %}
           {% endif %}
         </div>
       </ol>

@@ -1,3 +1,4 @@
+from http.client import HTTPResponse
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
@@ -23,6 +24,24 @@ departments = [
     "name": "Sales Department"
   },
 ]
+
+# INFO: Create section
+def add(request):
+  if request.method == "POST":
+    emp = Employee.objects.all().values()
+    new_emp = Employee.objects.create(emp_id=int(len(emp) + 1),
+      firstname=str(request.POST.get("firstname")),
+      middlename=str(request.POST.get("middlename")),
+      lastname=str(request.POST.get("lastname")),
+      work_id=str(request.POST.get("work_id")))
+    new_emp.save()
+    return HttpResponse("<script>location.href='../..'</script>")
+
+  else:
+    template = loader.get_template("add.html")
+    return HttpResponse(template.render({
+      "works": departments
+    }, request))
 
 # INFO: Read Data
 def index(request):
