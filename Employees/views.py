@@ -46,10 +46,26 @@ def add(request):
 # INFO: Read Data
 def index(request):
   emp = Employee.objects.all().values()
+  search = 0
+  if request.method == "GET":
+    try:
+      req = int(request.GET.get("dept", 0))
+      if not req == 0:
+        emp = Employee.objects.filter(work_id=int(req)).values()
+        search = request.GET.get("dept", 0)
+    except Exception as e:
+      print(e)
+    pass
+  dept = [{
+    "id": 0,
+    "name": "All"
+  }]
+  dept += departments
   template = loader.get_template("index.html")
   context = {
     "employees": emp,
-    "department": departments
+    "department": dept,
+    "search": int(search)
   }
   return HttpResponse(template.render(context, request))
 
