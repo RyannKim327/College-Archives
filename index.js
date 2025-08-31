@@ -6,7 +6,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   const query = req.query;
-  res.send("This GET request");
+  res.send("This GET request Developed by Ryann Kim Sesgundo");
 });
 
 app.post("/", (req, res) => {
