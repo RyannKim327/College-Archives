@@ -6,12 +6,24 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   const query = req.query;
-  res.send("This GET request Developed by Ryann Kim Sesgundo");
+  res.send({
+    ...query,
+    developer: "Ryann Kim Sesgundo",
+    course: "BSIT",
+    year: 4,
+    section: "B",
+  });
 });
 
 app.post("/", (req, res) => {
   const body = req.body;
-  res.send("This is POST request");
+  res.send({
+    ...body,
+    developer: "Ryann Kim Sesgundo",
+    course: "BSIT",
+    year: 4,
+    section: "B",
+  });
 });
 
 app.listen(PORT, () => {
