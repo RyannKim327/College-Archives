@@ -26,7 +26,7 @@ export default function Index() {
       //     status
       //   }
       // )
-      const response = await fetch(`https://sesgundo-class-manager-server.vercel.app/users/`, {
+      const response = await fetch(`https://bsit-4b-classmanagement-server.vercel.app/users`, {
         "method": "POST",
         headers: {
         "Content-Type": "application/json",
