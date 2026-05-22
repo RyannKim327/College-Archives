@@ -1,0 +1,34 @@
+/*
+ * INFO: This was the defaults for light theme
+ * other modifications may exists on the lower
+ * part of the file
+ */
+
+html,
+body,
+.main {
+  padding: 0;
+  margin: 0;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*
+ * NOTE: This file is created to separated the dark theme and light theme
+ * of the website based on the user's default. For reference, kindly visit
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+ */
+
+@media (prefers-color-scheme: dark) {
+  .main {
+    background-color: rgba(33, 33, 33, 1);
+  }
+}
