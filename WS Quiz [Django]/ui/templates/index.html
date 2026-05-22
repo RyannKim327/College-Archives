@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Index HTML</title>
+    <link href="{% static 'styles/index.css' %}" rel="stylesheet" />
+    <script src="{% static 'scripts/index.js' %}" defer></script>
+  </head>
+  <body>
+    <div class="base">
+      <ul>
+        <li onclick="setBackground('a')"><img id="a" src="{% static 'assets/cat1.jpeg' %}" alt="" /></li>
+        <li onclick="setBackground('b')"><img id="b" src="{% static 'assets/cat2.jpg' %}" alt="" /></li>
+        <li onclick="setBackground('c')"><img id="c" src="{% static 'assets/cat3.jpg' %}" alt="" /></li>
+        <li>Quiz #3</li>
+      </ul>
+      <div class="base">
+        <h1>Hello</h1>
+        <h3>Please click any image to see the surprise</h3>
+      </div>
+    </div>
+  </body>
+</html>
