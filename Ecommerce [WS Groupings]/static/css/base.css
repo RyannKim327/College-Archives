@@ -1,0 +1,45 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+  --main-background: #78b3ce;
+  --category-background: #c3e6f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: 0;
+  user-select: none;
+}
+
+body {
+  /* background-color: var(--main-background); */
+  color: var(--main-color);
+  width: 100dvw;
+  height: 100dvh;
+  overflow-x: hidden;
+
+  background: linear-gradient(
+      45deg,
+      transparent 33.33%,
+      rgba(57, 144, 179, 0.1) 33.33%,
+      rgba(0, 0, 0, 0.1) 66.66%,
+      transparent 66.66%
+    ),
+    var(--main-background);
+  background-size: 20px 20px;
+  border-radius: 50%;
+  animation: bg-animate 35s reverse infinite;
+}
+
+@keyframes bg-animate {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}

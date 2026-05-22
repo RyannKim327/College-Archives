@@ -1,0 +1,88 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Filter | {{ category }}</title>
+    <link href="{% static 'css/products.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="base">
+      {% include 'header.html' %}
+      <main>
+        <div class="search-section">
+          <span>
+            <span class="input-section">
+              <input
+                type="search"
+                name="search"
+                placeholder="Search product... "
+              />
+              <button>
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </span>
+            <span class="cart" onclick="gotocart()">
+              <i class="fa-solid fa-cart-shopping" onclick="tocart()"></i>
+              <span class="count">{{ total }}</span>
+            </span>
+          </span>
+        </div>
+        <div class="container-categories">
+          <ul id="categories">
+            {% for category in category_lists %}
+              <li onclick="goto('{% url 'PRODUCTS:CATEGORY' category %}')">{{ category }}</li>
+            {% endfor %}
+          </ul>
+          <div class="contents">
+            {% if filtered %}
+              {% if data %}
+                {% for i in data %}
+                  <span onclick="addtocart('{{ i.productID }}')" class="box">
+                    {% if i.productImage.url %}
+                      <img src="{{i.productImage.url}}">
+                    {% endif %}
+                    
+                    <span>{{ i.productName }}</span>
+                                        
+                    {% if i.discount > 0 %}
+                      <span style="color: red; text-decoration: line-through; font-size: .75rem">₱ {{ i.price }}</span>
+                      <span id="discount"></span>
+                      <script>
+                        const discount = document.getElementById("discount")
+                        const price = "{{ i.price }}"
+                        const percent = "{{ i.discount }}"
+                        discount.textContent = `₱ ${price - (price / percent)}`
+                      </script>
+                    {% else %}
+                      <span><i class="fa-solid fa-peso-sign"></i> {{ i.price }}</span>
+                    {% endif %}
+                  </span>
+                {% endfor %}
+              {% else %}
+                <h1>No data gathered</h1>
+              {% endif %}
+            {% else %}
+            <h1>Invalid Filter Key</h1>
+            {% endif %}
+          </div>
+        </div>
+      </main>
+    </div>
+    <script>
+      function addtocart(id){
+        const dir = "{% url 'PRODUCTS:ADDTOCART' 0 %}".replace(/0$/, "")
+        // if(confirm("Do want this product added to your cart?")){
+          location.href = `${dir}${id}`
+        // }
+      }
+      function goto(url){
+        location.href = url
+      }
+      function gotocart(){
+        location.href = "{% url 'PRODUCTS:CARTS' %}"
+      }
+    </script>
+  </body>
+</html>

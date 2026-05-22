@@ -1,0 +1,84 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile Information</title>
+  <link href="{% static 'css/forms.css' %}" rel="stylesheet" />
+  <style>
+    body {
+      >.base {
+        >form {
+          >.form {
+            display: flex;
+            flex-direction: column;
+
+            >.input {
+              width: 100%;
+              box-sizing: border-box;
+
+              >input {
+                width: 100%;
+              }
+            }
+
+            .buttons {
+              display: flex;
+              flex-direction: row;
+              gap: 0.5rem;
+
+              >* {
+                width: 100%;
+                box-sizing: border-box;
+                background-color: white;
+                color: black;
+                border-radius: 0.5rem;
+                font-size: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="base">
+    <form method="POST">
+      <h1>Profile Information</h1>
+      {% csrf_token %}
+      <div class="form">
+        <span class="input">
+          <input name="firstname" id="firstname" placeholder="First name" type="text" value="{{ user.firstname }}"
+            required />
+        </span>
+        <span class="input">
+          <input name="middlename" id="middlename" placeholder="Middle name" type="text"
+            value="{{ user.middlename }}" />
+        </span>
+        <span class="input">
+          <input name="lastname" id="lastname" placeholder="Last name" type="text" value="{{ user.lastname }}"
+            required />
+        </span>
+        <span class="input">
+          <input name="location" id="location" placeholder="location" type="text" value="{{ user.location }}"
+            required />
+        </span>
+        <div class="buttons">
+          <input class="input" type="submit" value="Submit" />
+          <button onclick="backtomain()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+<script>
+  function backtomain() {
+    location.href = "{% url 'PRODUCTS:INDEX' %}";
+  }
+</script>
+
+</html>

@@ -1,0 +1,100 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Products Lists</title>
+    <link href="{% static '/css/products.css' %}" rel="stylesheet" />
+    <script>
+      const imgs = [
+        "{% static 'assets/s1.png' %}",
+        "{% static 'assets/s2.png' %}",
+        "{% static 'assets/s3.png' %}",
+        "{% static 'assets/s4.png' %}",
+        "{% static 'assets/s5.png' %}",
+        "{% static 'assets/s6.png' %}"
+      ]
+    </script>
+    <script src="{% static '/js/products.js' %}" defer></script>
+  </head>
+  <body>
+    <div class="base">
+      {% include 'header.html' %}      
+      <main>
+        <div class="search-section">
+          <span>
+            <span class="input-section">
+              <input
+                type="search"
+                name="search"
+                placeholder="Search product... "
+              />
+              <button>
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </span>
+            <span class="cart" onclick="tocart()">
+              <i class="fa-solid fa-cart-shopping" onclick="tocart()"></i>
+              <span class="count">{{ total }}</span>
+            </span>
+          </span>
+        </div>
+        <div class="carousel">
+          <i class="fa-solid fa-less-than"></i>
+          <div id="carousel" class="content">
+            
+          </div>
+          <i class="fa-solid fa-greater-than"></i>
+        </div>
+        <div class="categories">
+          <div>
+            <p>Categories</p>
+            <div class="base-category">
+              {% if categories %} {% for category in categories %}
+              <span onclick="category('{{ category }}')" class="category">
+                <span>
+                  <img src="{% static 'assets/'|add:category|lower|add:'.png' %}">
+                </span>
+                {{category}}
+              </span>
+              {% endfor %} {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <div>
+            <p>Top Products</p>
+            <div class="container">
+              {% if products %}
+                {% for product in products %}
+                  <span class="content" onclick="addtocart('{{ product.productID }}')">
+                    <img src="{{ product.productImage.url }}" alt={{ product.productName }}>
+                    <span>{{ product.productName }}</span>
+                  </span>
+                {% endfor %}
+              {% else %}
+                <p>No Products yet</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </main>
+    </div> 
+    <script>
+      function addtocart(id){
+        const dir = "{% url 'PRODUCTS:ADDTOCART' 0 %}".replace(/0$/, "")
+        // if(confirm("Do want this product added to your cart?")){
+          location.href = `${dir}${id}`
+        // }
+      }
+      function category(id){
+        const dir = "{% url 'PRODUCTS:CATEGORY' 0 %}".replace(/0$/, "")
+        location.href = `${dir}${id}`
+      }
+      function tocart(){
+        location.href = "{% url 'PRODUCTS:CARTS' %}"
+      }
+    </script>
+  </body>
+</html>
