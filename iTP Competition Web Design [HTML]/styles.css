@@ -1,0 +1,523 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Rock+Salt&family=Russo+One&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: 0;
+	user-select: none;
+	outline: none;
+}
+
+:root{
+	--baseBlue: #013E9D;
+	--baseOrange: #FB8500;
+	--baseWhite: #ffffff;
+	--baseYellow: #FFF901;
+}
+
+body{
+	width: 100%;
+	height: 100vh;	
+}
+
+hr{
+	border: 1px var(--baseBlue) solid;
+}
+
+.container{
+	height: 100vh;
+	width: 100%;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
+
+.clickBait{
+	cursor: pointer;
+}
+
+#index{
+	background-image: url("assets/images/index-background.png");
+}
+
+#index > .top{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 13px 74px;
+}
+
+#index  > .top > img{
+	width: 5%;
+}
+
+#index > .top > nav{
+	justify-content: center;
+}
+
+#index > .top > nav > ul{
+	display: flex;
+	flex-direction: row;
+}
+
+#index > .top > nav > ul > li{
+	list-style: none;
+	font-family: "Roboto Slab", serif;
+	color: var(--baseBlue);
+	font-weight: 600;
+	cursor: pointer;
+}
+
+#index > .top > nav > ul > li:nth-child(even){
+	margin: 0 1em;
+}
+
+#index > .top > nav > ul > li::after{
+	content: "";
+	display: block;
+	width: 0;
+	height: 2px;
+	background-color: var(--baseBlue);
+	transition: width .3s;
+}
+
+#index > .top > nav > ul > li:hover::after{
+	width: 100%;
+}
+
+#index > .top > .socials{
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+}
+
+#index > .top > .socials > *{
+	align-self: center;
+	padding: .5em;
+}
+
+#index > .top > .socials > *:nth-child(even){
+	margin: 0 .5em;
+}
+
+#index > .body > .left{
+	display: flex;
+	flex-direction: column;
+	align-self: flex-start;
+	justify-content: center;
+	align-items: center;
+	max-width: 50%;
+	margin: 2em 3em;
+}
+
+#index > .body > .left > h2{
+	font-family: "Rock Salt", sans-serif;
+	font-variant: small-caps;
+	font-size: 2em;
+}
+
+#index > .body > .left > h1{
+	font-family: "Russo One", monospace;
+	color: #0360CF;
+	font-size: 6em;
+	font-variant: small-caps;
+}
+
+#index > .body > .left > .desc, #index > .body > .left > #description{
+	font-family: "Roboto Slab", serif;
+	text-align: center;
+}
+
+#index > .body > .left > .desc{
+	margin-top: -1em;
+}
+
+#index > .body > .left > #description{
+	margin-top: 3em;
+}
+
+#index > .body > .left > #buttons{
+	display: flex;
+	flex-direction: row;
+	margin: 2.5em 0;
+}
+
+#index > .body > .left > #buttons > *{
+	border-radius: 5em;
+	padding: .5em 1em;
+	margin: 0 1em;
+	font-weight: bold;
+	font-family: "Roboto Slab", serif;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#index > .body > .left > #buttons > #joinButton{
+	border: .20em var(--baseOrange) solid;
+	color: var(--baseOrange);
+	background-color: transparent;
+}
+
+#index > .body > .left > #buttons > #contactButton{
+	background-color: var(--baseOrange);
+	color: var(--baseWhite);
+}
+
+#about {
+	background-image: url("assets/images/about-background.png");
+	display: flex;
+	flex-direction: column;
+}
+
+#about  > .title{
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	justify-items: center;
+	justify-content: center;
+	margin: 5em;
+	margin-left: -10em;
+}
+
+#about  > .title > h1{
+	font-family: "Russo One", sans-serif;
+	font-variant: small-caps;
+	color: var(--baseWhite);
+	font-size: 3em;
+}
+
+#about > .title > h3{
+	font-family: "Rock Salt", serif;
+	font-variant: small-caps;
+	color: var(--baseYellow);
+	font-size: 1.5em;
+}
+
+#about > .base{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#about > .base > *{
+	margin: 0 3em;
+}
+
+#about > .base > .left{
+	display: flex;
+	flex-direction: column;
+	font-family: "Roboto Slab", monospace;
+	color: var(--baseWhite);
+	font-weight: 200;
+	max-width: 35%;
+	justify-items: center;
+}
+
+#about > .base > .left > h3, #about > .base > .left > p{
+	text-align: right;
+}
+
+#about > .base > .left > .selections{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 1.5em 0;
+}
+
+#about > .base > .left > .selections > *{
+	width: 5em;
+}
+
+#about > .base > .left > #readmore{
+	background-color: transparent;
+	padding: .5em 1em;
+	font-variant: small-caps;
+	border: 2px var(--baseYellow) solid;
+	border-radius: 5em;
+	color: var(--baseYellow);
+	font-family: "Roboto Slab", monospace;
+	align-self: center;
+	justify-self: center;
+	font-size: 1.5em;
+}
+
+#about > .base > .right > img{
+	width: 50%;
+	height: 50vh;
+}
+
+#events{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-image: url('assets/images/events-background.png');
+	padding: 2em;
+}
+
+#events > .contents{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+	color: var(--baseBlue);
+	margin: 1.5em 0;
+	justify-content: center;
+}
+
+#events > .contents > .content{
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#events > .contents > .content:hover{
+	animation: bounce-na-ako 1s alternate infinite;
+}
+
+@keyframes bounce-na-ako {
+	from{
+		margin-top: -2em;
+	}to{
+		margin-top: 0;
+	}
+}
+
+@-webkit-keyframes bounce-na-ako {
+	from{
+		margin-top: -1em;
+	}to{
+		margin-top: 0;
+	}
+}
+
+#events > .contents > .content > h3, #events > .contents > .content > p, #events > .contents > .content > span{
+	font-family: "Russo One", monospace;
+}
+
+#events > .contents > .content > p{
+	font-size: x-small;
+	font-weight: lighter;
+}
+
+#events > .contents > .content > span{
+	color: var(--baseOrange);
+	align-items: center;
+	align-content: center;
+}
+
+#events > .contents > .content > img{
+	height: 10em;
+	width: 25em;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+#events > .contents > .content:nth-child(2), #events > .contents > .content:nth-child(5){
+	margin:  0 1.5em;
+}
+
+#events > .eventReadMore{
+	background-color: transparent;
+	border: 2px var(--baseBlue) solid;
+	color: var(--baseBlue);
+	font-family: "Russo One", monospace;
+	border-radius: 5em;
+	padding: .5em 1.5em;
+	font-size: large;
+}
+
+#contact{
+	background-image: url("assets/images/events-background.png");
+}
+
+#contact > .top {
+	background-image: url("assets/images/contact-background.png");
+	height: 75vh;
+	background-attachment: fixed;
+	background-position: center;
+	transform: scaleX(-1);
+	padding: 1em;
+}
+
+#contact > .top > .content{
+	transform: scaleX(-1);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#contact > .top > .content > h1{
+	font-family: "Russo One", sans-serif;
+	font-variant: small-caps;
+	color: var(--baseWhite);
+}
+
+#contact > .top > .content > h3{
+	font-family: "Rock Salt", serif;
+	font-variant: small-caps;
+	color: var(--baseYellow);
+}
+
+#contact > .top > .content > .socials{
+	rotate: 24deg;
+	width: 30%;
+	align-self: flex-start;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 0 .5em;
+}
+
+#contact > .top > .content > .socials > div{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: -12em;
+	margin-left: -5em;
+	align-self: flex-start;
+	width: 100%;
+}
+
+#contact > .top > .content > .socials > div >.item{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: "Roboto Slab", serif;
+}
+
+#contact > .top > .content > .socials > div > .item > .circle{
+	background-color: var(--baseBlue);
+	border-radius: 50em;
+	padding: 1em;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+#contact > .top > .content > .socials > .others{
+	display: flex;
+	flex-direction: column;
+	font-size: smaller;
+	margin-top: -10em;
+	margin-left: -1em;
+}
+
+#contact > .top > .content > .socials > .others > .item{
+	display: flex;
+	flex-direction: row;
+}
+
+#contact > .top > .content > .socials > div > .item > .circle > svg,
+#contact > .top > .content > .socials > .others > .item  > svg {
+	rotate: -25deg;
+}
+
+#contact > .top > .content > .form{
+	display: flex;
+	flex-direction: column;
+	align-self: flex-end;
+	margin: 2em;
+	width: 50%;
+}
+
+#contact > .top > .content > .form > *{
+	border: 3px var(--baseYellow) solid;
+	border-radius: 1em;
+	background-color: transparent;
+	padding: 1.5em 1em;
+	font-family: "Roboto Slab", sans-serif;
+	color: var(--baseWhite);
+	width: 100%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	margin: .25em;
+}
+
+#contact > .top > .content > .form > *::placeholder{
+	color: var(--baseBlue);
+}
+
+#contact > .top > .content > .form > input[type='submit']{
+	background-color: var(--baseYellow);
+	color: var(--baseBlue);
+	font-size: larger;
+	width: auto;
+	align-self: center;
+	padding: .5em .75em;
+}
+
+#contact > .middle{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 0 5em;
+}
+
+#contact > .middle > .rows{
+	display: flex;
+	flex-direction: column;
+	width: 25%;
+}
+
+#contact > .middle > .rows > .others{
+	display: flex;
+	flex-direction: row;
+}
+
+#contact > .middle > .rows > span{
+	color: var(--baseBlue);
+	font-family: "Roboto Slab", serif;
+}
+
+#contact > .middle > .rows > .others > .circle{
+	background-color: var(--baseBlue);
+	border-radius: 50%;
+	padding: .43em .25em;
+	margin: 0 .1em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-items: center;
+}
+
+#contact > .middle > .rows > h2{
+	font-family: "Roboto Slab", serif;
+}
+
+#contact > .middle > .rows > .blue{
+	color: var(--baseBlue);
+	font-family: "Roboto Slab", serif;
+}
+
+#contact > .footer{
+	justify-items: center;
+	text-align: center;
+}
+
+#contact > .footer > h5{
+	font-family: "Roboto Slab", serif;
+}
+
+#contact > .footer > h5 > .blue{
+	color: var(--baseBlue);
+}
+
+::-webkit-scrollbar{
+	background-color: var(--baseBlue);
+	width: .5em;
+}
+
+::-webkit-scrollbar-track{
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+	background-color: var(--baseWhite);
+	border-radius: 5em;
+}
